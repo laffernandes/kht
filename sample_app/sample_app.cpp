@@ -200,19 +200,19 @@ glut_display_func()
 	glutSwapBuffers();
 
 	// Update frame rate.
+	static int frames = 0;
 	static clock_t last_time = 0;
-	static clock_t last_frame = 0;
-	clock_t current_time = clock();
 
-	if ((current_time - last_time) >= CLOCKS_PER_SEC)
+	clock_t time_now = clock();
+	++frames;
+	if ((time_now - last_time) > (CLOCKS_PER_SEC * 2))
 	{
-		frame_rate = static_cast<double>( CLOCKS_PER_SEC ) / (current_time - last_frame);
-		last_time = current_time;
-		
+		frame_rate = static_cast<double>( frames * CLK_TCK ) / (time_now - last_time);
+		last_time = time_now;
+		frames = 0;
+
 		update_window_title();
 	}
-
-	last_frame = current_time;
 }
 
 // This callback function is called by GLUT when the window is idle.
