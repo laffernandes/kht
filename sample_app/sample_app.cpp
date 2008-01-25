@@ -207,7 +207,7 @@ glut_display_func()
 	++frames;
 	if ((time_now - last_time) > (CLOCKS_PER_SEC * 2))
 	{
-		frame_rate = static_cast<double>( frames * CLK_TCK ) / (time_now - last_time);
+		frame_rate = static_cast<double>( frames * CLOCKS_PER_SEC ) / (time_now - last_time);
 		last_time = time_now;
 		frames = 0;
 
