@@ -161,7 +161,7 @@ vote(accumulator_t &accumulator, size_t rho_start_index, const size_t theta_star
 			inc_rho_index = -inc_rho_index;
 		}
 
-		// Loop for the rho coordinates of the parameter space
+		// Loop for the rho coordinates of the parameter space.
 		theta_voted = false;
 
 		rho_index = rho_start_index;
@@ -270,13 +270,8 @@ voting(accumulator_t &accumulator, const clusters_list_t &clusters, const double
 		aux = sqrt( 1.0 - (v.x * v.x) );
 		matrix_t nabla = {
 				             -((u.x * mean.x) + (u.y * mean.y)), 1.0,
-				(aux != 0.0) ? ((u.x / aux) * rad_to_deg) : 0.0, 0.0  // <--- In the case of a vertical line in the original image, we have a divide by zero operation that doesn't dealt with in Algorithm 2, line 20 (see Eq. 14).
-			};                                                        //      The paper does not describe what we do when this happens.
-		                                                              //      In such case, our implementation assumes that the partial derivative of theta with respect to m' is zero, making the variance to theta and the covariance of rho/theta to be equals to zero.
-		                                                              //      Notice that it is true for the linking [Ref. 26] and subdivision [Ref. 27] procedures we use.
-		                                                              //      The divide by zero operation can also be handled by adding a little perturbation to the line's orientation before evaluate Eq. 14.
-		                                                              //
-		                                                              //      Acknowledgments: The authors would like to thank Ian (from University of Waterloo) for catching the lack of specification in Algorithm 2.
+				(aux != 0.0) ? ((u.x / aux) * rad_to_deg) : 0.0, 0.0
+			};
 
 		aux = 0.0;
 		for (size_t i=0; i!=cluster.size; ++i)
