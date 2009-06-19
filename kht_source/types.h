@@ -227,7 +227,7 @@ public:
 			}
 
 			m_theta[1] = 0.0;
-			for (size_t i=2; i<m_height; i++)
+			for (size_t i=2; i<=m_height; i++)
 			{
 				m_theta[i] = m_theta[i-1] + delta;
 			}

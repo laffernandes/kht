@@ -1,2 +1,10 @@
 Version 1.0.0
 - NEW: Everything is new.
+
+Version 1.0.1
+- BUG FIX: During initialization of the accumulator, the last item of the
+           lookup table defining the discrete theta values was not initialized.
+           In such case, the value should be 180-delta degrees. As a result,
+           detected lines having theta = 180-delta were getting a random angular
+           value. The authors would like to thank Dave Wood for point out this
+           problem.
