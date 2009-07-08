@@ -174,7 +174,7 @@ peak_detection(lines_list_t &lines, const accumulator_t &accumulator)
 	}
 	
 	// Sort the list in descending order according to the result of the convolution.
-	std::qsort( used_bins.items(), used_bins_count, sizeof( bin_t ), (int(__cdecl*)(const void*, const void*))compare_bins );
+	std::qsort( used_bins.items(), used_bins_count, sizeof( bin_t ), (int(*)(const void*, const void*))compare_bins );
 	
 	// Use a sweep plane that visits each cell of the list.
 	static visited_map_t visited;
