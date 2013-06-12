@@ -1,11 +1,11 @@
 = KERNEL-BASED HOUGH TRANSFORM FOR DETECTING STRAIGHT LINES IN IMAGES ===========
 
 
- Copyright (C) 2008 Leandro A. F. Fernandes and Manuel M. Oliveira
+ Copyright (C) 2008-2013 Leandro A. F. Fernandes and Manuel M. Oliveira
 
  author   : Fernandes, Leandro A. F.
  e-mail   : laffernandes@gmail.com
- home page: http://www.inf.ufrgs.br/~laffernandes
+ home page: http://www.ic.uff.br/~laffernandes
 
 
  The complete description of the implemented techinique can be found at
@@ -14,7 +14,7 @@
      Real-time line detection through an improved Hough transform voting scheme
      Pattern Recognition (PR), Elsevier, 41:1, 2008, 299-314.
      DOI: http://dx.doi.org/10.1016/j.patcog.2007.04.003
-     Project Page: http://www.inf.ufrgs.br/~laffernandes/kht.html
+     Project Page: http://www.ic.uff.br/~laffernandes/projects/kht/
 
  If you use this implementation, please reference the above paper.
 
@@ -33,9 +33,10 @@
  We have compiled and tested the sample application and the MATLAB wrapper
  function on Windows. The source code is compatible with GCC, so we believe
  that it works on Linux, too. We compiled the sample application using Visual
- Studio 2005 and Visual Studio 2008 Express Edition (projects files are in the
- 'sample_app' directory). We compiled the MEX-file using Visual Studio 2005 and
- MATLAB 7 (M-files and MEX -functions are in the 'matlab' directory).
+ Studio 2005, Visual Studio 2008 Express Edition and Visual Studio 2010 (projects
+ files are in the 'sample_app' directory). We compiled the MEX-file using
+ Visual Studio 2005, 2008 and 2010 with MATLAB 7 and R2011b (M-files and the source
+ code of MEX-functions are in the 'matlab' directory).
 
 
 
