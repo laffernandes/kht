@@ -8,3 +8,14 @@ Version 1.0.1
            detected lines having theta = 180-delta were getting a random angular
            value. The authors would like to thank Dave Wood for point out this
            problem.
+
+Version 1.0.2
+- BUG FIX: In line 177 of peak_detection.cpp file, the function compare_bins was
+           being forced to assume a non standard calling convention when passed
+           as argument to std::qsort() function, preventing its compilation in
+           Linux. The problem was fixed. The authors would like to thank Laurens
+           Leeuwis for point out this problem.
+
+Version 1.0.3
+- UPDATE: The kht_compile.m file was ported to MATLAB R2011b, and a Microsoft
+          Visual Stution 2010 project was included.
