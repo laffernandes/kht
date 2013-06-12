@@ -31,12 +31,13 @@
 
 
  We have compiled and tested the sample application and the MATLAB wrapper
- function on Windows. The source code is compatible with GCC, so we believe
- that it works on Linux, too. We compiled the sample application using Visual
- Studio 2005, Visual Studio 2008 Express Edition and Visual Studio 2010 (projects
- files are in the 'sample_app' directory). We compiled the MEX-file using
- Visual Studio 2005, 2008 and 2010 with MATLAB 7 and R2011b (M-files and the source
- code of MEX-functions are in the 'matlab' directory).
+ function on Windows. The source code is compatible with GCC, so we believe that
+ it works on Linux, too. We compiled the sample application using Visual Studio
+ 2005, Visual Studio 2008 Express Edition and Visual Studio 2010 (projects files
+ are in the 'sample_app' directory). We compiled the MEX-file using Visual Studio
+ 2005, 2008 Express Edition with MATLAB 7, and using Visual Studio 2010 with
+ MATLAB R2011b (M-files and the source code of MEX-functions are in the 'matlab'
+ directory).
 
 
 
