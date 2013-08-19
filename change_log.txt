@@ -19,3 +19,8 @@ Version 1.0.2
 Version 1.0.3
 - UPDATE: The kht_compile.m file was ported to MATLAB R2011b, and a Microsoft
           Visual Stution 2010 project was included.
+
+Version 1.0.4
+- BUG FIX: In the next() function of linking.cpp file, there was no protections
+           against accessing pixels outside the image limits. The author would
+           like to thank Timo Knuutile for point out this problem.
