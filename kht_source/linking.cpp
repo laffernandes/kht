@@ -36,7 +36,7 @@
 // This function complements the linking procedure.
 inline
 bool
-next(int &x_seed, int &y_seed, const unsigned char *binary_image, const size_t image_width)
+next(int &x_seed, int &y_seed, const unsigned char *binary_image, const size_t image_width, const size_t image_height)
 {
 	/* Leandro A. F. Fernandes, Manuel M. Oliveira
 	 * Real-time line detection through an improved Hough transform voting scheme
@@ -52,13 +52,18 @@ next(int &x_seed, int &y_seed, const unsigned char *binary_image, const size_t i
     for (size_t i=0; i!=8; ++i)
 	{
 		x = x_seed + X_OFFSET[i];
-		y = y_seed + Y_OFFSET[i];
-		
-		if (binary_image[y*image_width+x])
+		if ((0 <= x) && (x < image_width))
 		{
-			x_seed = x;
-			y_seed = y;
-			return true;
+			y = y_seed + Y_OFFSET[i];
+			if ((0 <= y) && (y < image_height))
+			{
+				if (binary_image[y*image_width+x])
+				{
+					x_seed = x;
+					y_seed = y;
+					return true;
+				}
+			}
 		}
 	}
 	return false;
@@ -67,7 +72,7 @@ next(int &x_seed, int &y_seed, const unsigned char *binary_image, const size_t i
 // Creates a string of neighboring edge pixels.
 inline
 void
-linking_procedure(string_t &string, unsigned char *binary_image, const size_t image_width, const int x_ref, const int y_ref, const double half_width, const double half_height)
+linking_procedure(string_t &string, unsigned char *binary_image, const size_t image_width, const size_t image_height, const int x_ref, const int y_ref, const double half_width, const double half_height)
 {
 	/* Leandro A. F. Fernandes, Manuel M. Oliveira
 	 * Real-time line detection through an improved Hough transform voting scheme
@@ -95,7 +100,7 @@ linking_procedure(string_t &string, unsigned char *binary_image, const size_t im
 
 		binary_image[y*image_width+x] = 0;
 	}
-	while (next( x, y, binary_image, image_width ));
+	while (next( x, y, binary_image, image_width, image_height ));
 
 	pixel_t temp;
 	for (size_t i=0, j=string.size()-1; i<j; ++i, --j)
@@ -108,7 +113,7 @@ linking_procedure(string_t &string, unsigned char *binary_image, const size_t im
 	// Find and add feature pixels to the begin of the string.
 	x = x_ref;
 	y = y_ref;
-	if (next( x, y, binary_image, image_width ))
+	if (next( x, y, binary_image, image_width, image_height ))
 	{
 		do
 		{
@@ -122,7 +127,7 @@ linking_procedure(string_t &string, unsigned char *binary_image, const size_t im
 
 			binary_image[y*image_width+x] = 0;
 		}
-		while (next( x, y, binary_image, image_width ));
+		while (next( x, y, binary_image, image_width, image_height ));
 	}
 }
 
@@ -143,7 +148,7 @@ find_strings(strings_list_t &strings, unsigned char *binary_image, const size_t 
 			{
 				string_t &string = strings.push_back();
 
-				linking_procedure( string, binary_image, image_width, x, y, half_width, half_height );
+				linking_procedure( string, binary_image, image_width, image_height, x, y, half_width, half_height );
 
 				if (string.size() < min_size)
 				{
