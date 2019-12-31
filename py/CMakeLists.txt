@@ -83,5 +83,5 @@ set_target_properties(kht PROPERTIES PREFIX "")
 include(GNUInstallDirs)
 
 install(TARGETS kht
-  LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/kht/py/${Python_VERSION_MAJOR}.${Python_VERSION_MINOR}"
+  LIBRARY DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/kht/python/${Python_VERSION_MAJOR}.${Python_VERSION_MINOR}"
 )

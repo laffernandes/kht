@@ -85,7 +85,7 @@ Notice that you may use the `-G <generator-name>` option of CMake's command-line
 We provide a back-end to access KHT from a Python environment. In order to make it available, you have to build the `kht` module, after installing the KHT library, using the commands presented bellow:
 
 ```bash
-cd <kht-dir>/py
+cd <kht-dir>/python
 mkdir build
 cd build
 cmake ..
@@ -94,12 +94,12 @@ cmake --build . --config Release --target install
 
 It is important to emphasize that both Python 2 and 3 are supported. Please, refer to [CMake's documentation](https://cmake.org/cmake/help/latest/module/FindPython.html) for details about how CMake finds the Python interpreter, compiler, and development environment.
 
-Finally, add `<cmake-install-prefix>/lib/kht/py/<python-version>` to the the `PYTHONPATH` environment variable. The `<cmake-install-prefix>` placeholder usually is `/usr/local` on Linux, and `C:/Program Files/KHT` or `C:/Program Files (x86)/KHT` on Windows. But it may change according to what was set in CMake. The `<python-version>` placeholder is the version of the Python interpreter found by CMake.
+Finally, add `<cmake-install-prefix>/lib/kht/python/<python-version>` to the the `PYTHONPATH` environment variable. The `<cmake-install-prefix>` placeholder usually is `/usr/local` on Linux, and `C:/Program Files/KHT` or `C:/Program Files (x86)/KHT` on Windows. But it may change according to what was set in CMake. The `<python-version>` placeholder is the version of the Python interpreter found by CMake.
 
 Set the `PYTHONPATH` variable by calling following command in Linux:
 
 ```bash
-export PYTHONPATH="$PYTHONPATH:<cmake-install-prefix>/lib/kht/py/<python-version>"
+export PYTHONPATH="$PYTHONPATH:<cmake-install-prefix>/lib/kht/python/<python-version>"
 ```
 
 But this action is not permanent. The new value of `PYTHONPATH` will be lost as soon as you close the terminal. A possible solution to make an environment variable persistent for a user's environment is to export the variable from the user's profile script:
@@ -114,7 +114,7 @@ Execute the following steps to set the `PYTHONPATH` in Windows:
   2. Choose *Properties* from the context menu.
   3. Click the *Advanced system settings* link.
   4. Click *Environment Variables*. In the section *System Variables*, find the `PYTHONPATH` environment variable and select it. Click *Edit*. If the `PYTHONPATH` environment variable does not exist, click *New*.
-  5. In the *Edit System Variable* (or *New System Variable*) window, specify the value of the `PYTHONPATH` environment variable to include `"<cmake-install-prefix>/lib/kht/py/<python-version>"`. Click *OK*. Close all remaining windows by clicking *OK*.
+  5. In the *Edit System Variable* (or *New System Variable*) window, specify the value of the `PYTHONPATH` environment variable to include `"<cmake-install-prefix>/lib/kht/python/<python-version>"`. Click *OK*. Close all remaining windows by clicking *OK*.
   6. Reopen yout Python environment.
 
 ## Installing the MATLAB Wrapper
@@ -158,7 +158,7 @@ Recall that `<kht-dir>` is the directory in which you placed KHT's source code.
 
 Use the files in the `<kht-dir>/cpp/example` directory as examples of how to configure and call the reference implementation of the KHT from your C++ program. For instance, after installation of the KHT library, CMake will find KHT using the command `find_package(KHT)` (see the [`<kht-dir>/cpp/example/CMakeLists.txt`](cpp/example/CMakeLists.txt) file and the [CMake documentation](https://cmake.org/cmake/help/latest/command/find_package.html) for details). Also, you will be able to use the `KHT_INCLUDE_DIRS` variable in the `CMakeList.txt` file of your program while defining the include directories of your C++ project or targets. In your source code, you have to use the `#include <kht/kht.hpp>` directive to include the contents of the standard header file and then call the `kht` procedure (see the [`<kht-dir>/cpp/example/kht_example.cpp`](cpp/example/kht_example.cpp) file).
 
-Similarly, you will find examples of how to use the KHT library with Python and MATLAB in, respectively, the [`<kht-dir>/py/example`](py/example) and [`<kht-dir>/matlab/example`](matlab/example) directories.
+Similarly, you will find examples of how to use the KHT library with Python and MATLAB in, respectively, the [`<kht-dir>/python/example`](python/example) and [`<kht-dir>/matlab/example`](matlab/example) directories.
 
 ## 4. Related Project
 
