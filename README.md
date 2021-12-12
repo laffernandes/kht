@@ -82,7 +82,14 @@ Notice that you may use the `-G <generator-name>` option of CMake's command-line
 
 ### Installing the Python Module
 
-We provide a back-end to access KHT from a Python environment. In order to make it available, you have to build the `kht` module, after installing the KHT library, using the commands presented bellow:
+We provide a back-end to access KHT from a Python environment. In order to make it available, you have to build the `kht` module, after installing the KHT library, using CMake of `setuptools`. With `setuptools` is easier, just run the commands presented bellow:
+
+```bash
+cd <kht-dir>/python
+python setup.py install
+```
+
+With CMake, run the following commands instead:
 
 ```bash
 cd <kht-dir>/python
